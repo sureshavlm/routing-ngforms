@@ -1,0 +1,53 @@
+
+
+<h2 style="color: green">Home Component of {{ companyName }}</h2>
+
+<a routerLink="./mission">Mission</a>
+
+<div style="margin-left: 50px;">
+	<router-outlet></router-outlet>
+</div>
+
+
+<!-- Built-in directives -->
+
+<div *ngIf="flag"> 
+	 <h3>Vision</h3>
+	 <p>
+		This is my company vision
+	</p>
+</div>
+
+<h3>Using NgForm with NgModel</h3>
+
+<div>
+   <form #userForm="ngForm" (ngSubmit)="validate(userForm)">
+	 <div> 
+	  Name: <input name="name" ngModel required #userName="ngModel">
+	 </div> 
+	 <div> 	 
+	  City: <input name="city" ngModel #userCity="ngModel">
+	 </div>	  
+	 <div> 	  
+	  State: <input name="state" ngModel>	  
+	 </div>	  
+	 <div> 	  
+	  <button>Submit</button> 
+          <button type="button" (click)="resetUserForm(userForm)">Reset</button>
+	 </div>	  
+   </form>
+</div>
+<div>
+	<p>Form value: <b> {{ userForm.value | json }} </b></p>
+	<p>Form valid: <b> {{ userForm.valid }} </b></p>
+	<p>Form touched: <b> {{ userForm.touched }} </b></p>
+	<p>Form submitted: <b> {{ userForm.submitted }} </b></p>
+</div>
+<div>
+	<p>Name value: <b> {{ userName.value }} </b></p>
+	<p>Name valid: <b> {{ userName.valid }} </b></p>
+</div>
+<div>
+	<p>City value: <b> {{ userCity.value }} </b></p>
+	<p>City valid: <b> {{ userCity.valid }} </b></p>
+</div> 
